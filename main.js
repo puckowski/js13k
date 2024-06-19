@@ -203,22 +203,13 @@ gl.enable(gl.BLEND);
 gl.blendFunc(gl.SRC_ALPHA, gl.ONE_MINUS_SRC_ALPHA);
 
 const tumblerWall1 = new TextureTumbler(256, 256);
-tumblerWall1.drawRectangle(0, 0, 32, 32, 65, 64, 64, 255)
-    .drawRectangle(32, 0, 32, 32, 87, 86, 85, 255)
-    .drawRectangle(64, 0, 32, 32, 65, 64, 64, 255)
-    .drawRectangle(96, 0, 32, 32, 87, 86, 85, 255)
-    .drawRectangle(128, 0, 32, 32, 65, 64, 64, 255)
-    .drawRectangle(160, 0, 32, 32, 87, 86, 85, 255)
-    .drawRectangle(192, 0, 32, 32, 65, 64, 64, 255)
-    .drawRectangle(224, 0, 32, 32, 87, 86, 85, 255)
-    .drawRectangle(0, 32, 32, 32, 85, 84, 84, 255)
-    .drawRectangle(32, 32, 32, 32, 107, 106, 105, 255)
-    .drawRectangle(64, 32, 32, 32, 85, 84, 84, 255)
-    .drawRectangle(96, 32, 32, 32, 107, 106, 105, 255)
-    .drawRectangle(128, 32, 32, 32, 85, 84, 84, 255)
-    .drawRectangle(160, 32, 32, 32, 107, 106, 105, 255)
-    .drawRectangle(192, 32, 32, 32, 85, 84, 84, 255)
-    .drawRectangle(224, 32, 32, 32, 107, 106, 105, 255)
+tumblerWall1.drawRectangle(0, 0, 86, 32, 63, 62, 62, 255)
+    .drawRectangle(86, 0, 86, 32, 92, 91, 90, 255)
+    .drawRectangle(172, 0, 86, 32, 63, 62, 62, 255)
+    .drawRectangle(0, 32, 64, 32, 112, 111, 110, 255)
+    .drawRectangle(64, 32, 64, 32, 80, 79, 79, 255)
+    .drawRectangle(128, 32, 64, 32, 112, 111, 110, 255)
+    .drawRectangle(192, 32, 64, 32, 80, 79, 79, 255)
     .copyRows(0, 64)
     .copyRows(32, 96)
     .copyRows(0, 128)
@@ -226,25 +217,29 @@ tumblerWall1.drawRectangle(0, 0, 32, 32, 65, 64, 64, 255)
     .copyRows(0, 192)
     .copyRows(32, 224)
     .addRandomNoise(85, 84, 84);
-const wallTexture = buildTexture(gl, 256, 256, tumblerWall1);
+let wallTexture = buildTexture(gl, 256, 256, tumblerWall1);
+
+const tumblerWall2 = new TextureTumbler(256, 256);
+tumblerWall2.drawRectangle(0, 0, 128, 32, 98, 74, 58, 255)
+    .drawRectangle(128, 0, 128, 32, 113, 89, 73, 255)
+    .drawRectangle(0, 32, 128, 32, 113, 64, 48, 255)
+    .drawRectangle(128, 32, 128, 32, 108, 84, 68, 255)
+    .copyRows(0, 64)
+    .copyRows(32, 96)
+    .copyRows(0, 128)
+    .copyRows(32, 160)
+    .copyRows(0, 192)
+    .copyRows(32, 224)
+    .addRandomNoise(99, 75, 59);
 
 const tumblerFloor1 = new TextureTumbler(256, 256);
-tumblerFloor1.drawRectangle(0, 0, 32, 32, 146, 135, 121, 255)
-    .drawRectangle(32, 0, 32, 32, 131, 121, 108, 255)
-    .drawRectangle(64, 0, 32, 32, 146, 135, 121, 255)
-    .drawRectangle(96, 0, 32, 32, 131, 121, 108, 255)
-    .drawRectangle(128, 0, 32, 32, 146, 135, 121, 255)
-    .drawRectangle(160, 0, 32, 32, 131, 121, 108, 255)
-    .drawRectangle(192, 0, 32, 32, 146, 135, 121, 255)
-    .drawRectangle(224, 0, 32, 32, 131, 121, 108, 255)
-    .drawRectangle(0, 32, 32, 32, 116, 108, 96, 255)
-    .drawRectangle(32, 32, 32, 32, 102, 94, 84, 255)
-    .drawRectangle(64, 32, 32, 32, 116, 108, 96, 255)
-    .drawRectangle(96, 32, 32, 32, 102, 94, 84, 255)
-    .drawRectangle(128, 32, 32, 32, 116, 108, 96, 255)
-    .drawRectangle(160, 32, 32, 32, 102, 94, 84, 255)
-    .drawRectangle(192, 32, 32, 32, 116, 108, 96, 255)
-    .drawRectangle(224, 32, 32, 32, 102, 94, 84, 255)
+tumblerFloor1.drawRectangle(0, 0, 86, 32, 146, 135, 121, 255)
+    .drawRectangle(86, 0, 86, 32, 131, 121, 108, 255)
+    .drawRectangle(172, 0, 86, 32, 146, 135, 121, 255)
+    .drawRectangle(0, 32, 64, 32, 116, 108, 96, 255)
+    .drawRectangle(64, 32, 64, 32, 102, 94, 84, 255)
+    .drawRectangle(128, 32, 64, 32, 116, 108, 96, 255)
+    .drawRectangle(192, 32, 64, 32, 102, 94, 84, 255)
     .copyRows(0, 64)
     .copyRows(32, 96)
     .copyRows(0, 128)
@@ -759,6 +754,16 @@ function findSpherePosition() {
 
 // Function to redraw the scene with a new map
 function redrawScene(newMap) {
+    switch (level) {
+        case 1: {
+            wallTexture = buildTexture(gl, 256, 256, tumblerWall1);
+            break;
+        }
+        case 2: {
+            wallTexture = buildTexture(gl, 256, 256, tumblerWall2);
+            break;
+        }
+    }
     map = newMap;
     buffers = initBuffers(gl);
     // Example usage: move the sphere to a new location on the map
@@ -864,24 +869,37 @@ function drawLives() {
     status.appendChild(btn);
 }
 
-function clearStatus() {
-    let ele = document.getElementById('win');
-    ele.setAttribute('hidden', true);
-    ele = document.getElementById('defeat');
-    ele.setAttribute('hidden', true);
+let rpsResultTimeout;
+let rpsResultEle;
+
+function computeColor(hidden) {
+    if (!hidden) {
+        // Get the current value of the CSS variable
+        let currentIntensity = getComputedStyle(document.documentElement).getPropertyValue('--intensity').trim();
+        let newIntensity = Math.max(parseInt(currentIntensity) - 30, 135);
+        // Set the new value back to the CSS variable
+        document.documentElement.style.setProperty('--intensity', newIntensity);
+    } else {
+        document.documentElement.style.setProperty('--intensity', 255);
+    }
 }
 
 function showStatus(id, txt) {
-    clearStatus();
     const ele = document.getElementById(id);
-    if (ele.hidden) {
-        ele.removeAttribute('hidden');
-        ele.innerText = txt;
+    computeColor(ele.hidden);
+    ele.removeAttribute('hidden');
+    ele.innerText = txt;
 
-        setTimeout(() => {
-            ele.setAttribute('hidden', true);
-        }, 3000);
+    if (rpsResultTimeout) {
+        if (rpsResultEle !== ele) {
+            rpsResultEle.setAttribute('hidden', true);
+        }
+        clearTimeout(rpsResultTimeout);
     }
+    rpsResultTimeout = setTimeout(() => {
+        ele.setAttribute('hidden', true);
+    }, 3000);
+    rpsResultEle = ele;
 
     drawLives();
 }
