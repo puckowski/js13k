@@ -845,6 +845,8 @@ document.addEventListener('keydown', (event) => {
     }
 });
 
+let isFullScreen = false;
+
 function drawLives() {
     const status = document.getElementById('status');
     if (lives <= 0) {
@@ -867,6 +869,92 @@ function drawLives() {
         }
     }
     status.appendChild(btn);
+    const leftBtn = document.createElement('button');
+    leftBtn.innerText = 'Left';
+    leftBtn.style = 'color:white;background-color:#2222;margin-left:1rem;'
+    leftBtn.onclick = () => {
+        let event = new KeyboardEvent('keydown', {
+            key: 'ArrowLeft'
+        });
+        document.dispatchEvent(event);
+    }
+    status.appendChild(leftBtn);
+    const upBtn = document.createElement('button');
+    upBtn.innerText = 'Up';
+    upBtn.style = 'color:white;background-color:#2222;margin-left:1rem;'
+    upBtn.onclick = () => {
+        let event = new KeyboardEvent('keydown', {
+            key: 'ArrowUp'
+        });
+        document.dispatchEvent(event);
+    }
+    status.appendChild(upBtn);
+    const rightBtn = document.createElement('button');
+    rightBtn.innerText = 'Right';
+    rightBtn.style = 'color:white;background-color:#2222;margin-left:1rem;'
+    rightBtn.onclick = () => {
+        let event = new KeyboardEvent('keydown', {
+            key: 'ArrowRight'
+        });
+        document.dispatchEvent(event);
+    }
+    status.appendChild(rightBtn);
+    const backBtn = document.createElement('button');
+    backBtn.innerText = 'Back';
+    backBtn.style = 'color:white;background-color:#2222;margin-left:1rem;'
+    backBtn.onclick = () => {
+        let event = new KeyboardEvent('keydown', {
+            key: 'ArrowDown'
+        });
+        document.dispatchEvent(event);
+    }
+    status.appendChild(backBtn);
+    const sBtn = document.createElement('button');
+    sBtn.innerText = 'Rock';
+    sBtn.style = 'color:white;background-color:#2222;margin-left:1rem;'
+    sBtn.onclick = () => {
+        let event = new KeyboardEvent('keydown', {
+            key: 'd'
+        });
+        document.dispatchEvent(event);
+    }
+    status.appendChild(sBtn);
+    const rBtn = document.createElement('button');
+    rBtn.innerText = 'Rock';
+    rBtn.style = 'color:white;background-color:#2222;margin-left:1rem;'
+    rBtn.onclick = () => {
+        let event = new KeyboardEvent('keydown', {
+            key: 'a'
+        });
+        document.dispatchEvent(event);
+    }
+    status.appendChild(rBtn);
+    const pBtn = document.createElement('button');
+    pBtn.innerText = 'Paper';
+    pBtn.style = 'color:white;background-color:#2222;margin-left:1rem;'
+    pBtn.onclick = () => {
+        let event = new KeyboardEvent('keydown', {
+            key: 's'
+        });
+        document.dispatchEvent(event);
+    }
+    status.appendChild(pBtn);
+    const fullScreenBtn = document.createElement('button');
+    fullScreenBtn.innerText = 'Full Screen';
+    fullScreenBtn.style = 'color:white;background-color:#2222;margin-left:1rem;';
+    const fullScreenToggleFn =() => {
+        if (!isFullScreen) {
+            canvas.style.width = '100%';
+            canvas.style.height = 'calc(100% - 30px)'
+            isFullScreen = true;
+        } else {
+            canvas.style.width = '';
+            canvas.style.height = ''
+            isFullScreen = false;
+        }
+    };
+    fullScreenBtn.onclick = fullScreenToggleFn;
+    status.appendChild(fullScreenBtn);
 }
 
 let rpsResultTimeout;
