@@ -830,6 +830,7 @@ document.addEventListener('keydown', (event) => {
                     break;
                 }
                 case 2: {
+                    lives--;
                     showStatus('defeat', 'Rock')
                     break;
                 }
@@ -909,16 +910,6 @@ function drawLives() {
         document.dispatchEvent(event);
     }
     status.appendChild(backBtn);
-    const sBtn = document.createElement('button');
-    sBtn.innerText = 'Rock';
-    sBtn.style = 'color:white;background-color:#2222;margin-left:1rem;'
-    sBtn.onclick = () => {
-        let event = new KeyboardEvent('keydown', {
-            key: 'd'
-        });
-        document.dispatchEvent(event);
-    }
-    status.appendChild(sBtn);
     const rBtn = document.createElement('button');
     rBtn.innerText = 'Rock';
     rBtn.style = 'color:white;background-color:#2222;margin-left:1rem;'
@@ -939,10 +930,20 @@ function drawLives() {
         document.dispatchEvent(event);
     }
     status.appendChild(pBtn);
+    const sBtn = document.createElement('button');
+    sBtn.innerText = 'Scissors';
+    sBtn.style = 'color:white;background-color:#2222;margin-left:1rem;'
+    sBtn.onclick = () => {
+        let event = new KeyboardEvent('keydown', {
+            key: 'd'
+        });
+        document.dispatchEvent(event);
+    }
+    status.appendChild(sBtn);
     const fullScreenBtn = document.createElement('button');
     fullScreenBtn.innerText = 'Full Screen';
     fullScreenBtn.style = 'color:white;background-color:#2222;margin-left:1rem;';
-    const fullScreenToggleFn =() => {
+    const fullScreenToggleFn = () => {
         if (!isFullScreen) {
             canvas.style.width = '100%';
             canvas.style.height = 'calc(100% - 30px)'
